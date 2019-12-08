@@ -1,7 +1,5 @@
-<p>workflow works!</p>
-<ul *ngIf="tasks$ | async as tasks else noData">
-  <li *ngFor="let task of tasks">
-    {{task.title}}
-  </li>
-</ul>
+<h2>Workflow</h2>
+<div *ngIf="tasks$ | async as tasks else noData">
+  <task *ngFor="let task of tasks" [task]=task> </task>
+</div>
 <ng-template #noData>No Data Available</ng-template>
