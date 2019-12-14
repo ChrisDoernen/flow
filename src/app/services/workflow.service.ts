@@ -16,7 +16,7 @@ export class WorkflowService {
 
   public getWorkflow(): void {
     console.log("Getting workflow");
-    this.httpClient.get<Task[]>("assets/workflow.json")
+    this.httpClient.get<Task[]>("assets/data/workflow.json")
       .subscribe(tasks => this.tasks$.next(tasks));
   }
 }

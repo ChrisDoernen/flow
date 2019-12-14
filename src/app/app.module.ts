@@ -10,6 +10,8 @@ import { StatusComponent } from "./components/status/status.component";
 import { TaskComponent } from "./components/task/task.component";
 import { WorkflowComponent } from "./components/workflow/workflow.component";
 import { WorkflowService } from "./services/workflow.service";
+import { LogoComponent } from './components/logo/logo.component';
+import { InlineSVGModule } from "ng-inline-svg";
 
 @NgModule({
   declarations: [
@@ -17,14 +19,16 @@ import { WorkflowService } from "./services/workflow.service";
     WorkflowComponent,
     TaskComponent,
     StatusComponent,
-    ClockComponent
+    ClockComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    InlineSVGModule.forRoot()
   ],
   providers: [
     {
