@@ -9,9 +9,11 @@ import { ClockComponent } from "./components/clock/clock.component";
 import { StatusComponent } from "./components/status/status.component";
 import { TaskComponent } from "./components/task/task.component";
 import { WorkflowComponent } from "./components/workflow/workflow.component";
-import { WorkflowService } from "./services/workflow.service";
+import { WorkflowService } from "./services/workflow/workflow.service";
 import { LogoComponent } from './components/logo/logo.component';
 import { InlineSVGModule } from "ng-inline-svg";
+import { WorkflowsComponent } from './components/workflows/workflows.component';
+import { WorkflowsService } from "./services/workflows/workflows.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { InlineSVGModule } from "ng-inline-svg";
     TaskComponent,
     StatusComponent,
     ClockComponent,
-    LogoComponent
+    LogoComponent,
+    WorkflowsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +36,10 @@ import { InlineSVGModule } from "ng-inline-svg";
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,
-      useFactory: (workflowService: WorkflowService) => {
-        return () => workflowService.getWorkflow();
+      useFactory: (workflowsService: WorkflowsService) => {
+        return () => workflowsService.getWorkflows();
       },
-      deps: [WorkflowService],
+      deps: [WorkflowsService],
       multi: true
     }
   ],
