@@ -1,3 +1,5 @@
-<div *ngFor="let workflow of workflows$ | async">
-    {{workflow.name}}
-</div>
+<ng-container *ngFor="let workflow of workflows$ | async">
+    <a [routerLink]="['/workflows', workflow.id]">
+        {{workflow.name}}
+    </a>
+</ng-container>

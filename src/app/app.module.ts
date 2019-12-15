@@ -9,11 +9,10 @@ import { ClockComponent } from "./components/clock/clock.component";
 import { StatusComponent } from "./components/status/status.component";
 import { TaskComponent } from "./components/task/task.component";
 import { WorkflowComponent } from "./components/workflow/workflow.component";
-import { WorkflowService } from "./services/workflow/workflow.service";
+import { WorkflowsService } from "./services/workflows/workflows.service";
 import { LogoComponent } from './components/logo/logo.component';
 import { InlineSVGModule } from "ng-inline-svg";
 import { WorkflowsComponent } from './components/workflows/workflows.component';
-import { WorkflowsService } from "./services/workflows/workflows.service";
 
 @NgModule({
   declarations: [

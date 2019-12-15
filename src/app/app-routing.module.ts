@@ -6,7 +6,7 @@ import { WorkflowComponent } from "./components/workflow/workflow.component";
 const routes: Routes = [
   { path: "", redirectTo: "/workflows", pathMatch: "full" },
   { path: "workflows", component: WorkflowsComponent },
-  { path: "workflow/:id", component: WorkflowComponent }
+  { path: "workflows/:id", component: WorkflowComponent }
 ];
 
 @NgModule({

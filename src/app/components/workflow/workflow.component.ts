@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { WorkflowService } from "src/app/services/workflow/workflow.service";
+import { WorkflowsService } from "src/app/services/workflows/workflows.service";
 import { ActivatedRoute } from "@angular/router";
+import { Workflow } from "src/app/entities/workflow.entity";
 
 @Component({
   selector: "workflow",
@@ -9,15 +10,15 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class WorkflowComponent implements OnInit {
 
-  public tasks$ = this.workflowService.tasks$;
+  public workflow: Workflow;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly workflowService: WorkflowService) {
+    private readonly workflowsService: WorkflowsService) {
   }
 
   public ngOnInit(): void {
-    const workflowId = this.activatedRoute.snapshot.params["id"];
-    this.workflow = this.workflowService.getWorkflow(workflowId);
+    const workflowId = this.activatedRoute.snapshot.paramMap.get("id");
+    this.workflowsService.getWorkflow(workflowId).then((workflow) => this.workflow = workflow);
   }
 }

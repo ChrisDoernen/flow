@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ReplaySubject } from "rxjs";
-import { Workflow } from "../../entities/workflow.entity";
+import { Workflow } from "src/app/entities/workflow.entity";
 
 @Injectable({
   providedIn: "root"
@@ -18,5 +18,10 @@ export class WorkflowsService {
     console.log("Getting workflows");
     this.httpClient.get<Workflow[]>("assets/data/workflows.json")
       .subscribe(workflows => this.workflows$.next(workflows));
+  }
+
+  public getWorkflow(id: string): Promise<Workflow> {
+    console.log("Getting workflow with id", id);
+    return this.httpClient.get<Workflow>(`assets/data/${id}.json`).toPromise();
   }
 }
